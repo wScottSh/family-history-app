@@ -13,6 +13,7 @@ match (:Person {alias: "Scott"})<-[:CHILD]-(:Children)<-[:PARENT]-(:Person)<-[:C
 // this one returns inlaw siblings on your own side
 match (:Person {alias: "Scott"})<-[:CHILD]-(:Children)-[:CHILD]->(:Person)-[:MARRIED]-(inLaw:Person) return inLaw
 // inlaws on the other side?
+match (:Person {alias: "Scott"})-[:MARRIED]-(:Person)<-[:CHILD]-(:Children)-[:CHILD]->(:Person)-[:MARRIED]-(inLaw:Person) return inLaw
 // parent in laws?
 
 // first cousins
