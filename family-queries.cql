@@ -14,3 +14,6 @@ match (:Person {alias: "Scott"})<-[:CHILD]-(:Children)<-[:PARENT]-(:Person)<-[:C
 match (:Person {alias: "Scott"})<-[:CHILD]-(:Children)-[:CHILD]->(:Person)-[:MARRIED]-(inLaw:Person) return inLaw
 // inlaws on the other side?
 // parent in laws?
+
+// first cousins
+MATCH (:Person {alias: "DuckBat"})<-[:CHILD]-(:Children)<-[:PARENT]-(:Person)<-[:CHILD]-(:Children)-[:CHILD]->(:Person)-[:PARENT]->(:Children)-[:CHILD]->(firstCousin:Person) return firstCousin

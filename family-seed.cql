@@ -228,6 +228,11 @@ create (scott:Person
     gender: "male",
     alias: "Cameron"}
 ),
+(camen:Person
+    {name: "Camen Roylance Jensen",
+    gender: "male",
+    alias: "Camen"}
+),
 // scott's family
 (scott)-[:MARRIED]->(paige),
 (scottKids:Children {name: "Scott & Paige's Kids"}),
@@ -270,6 +275,7 @@ create (scott:Person
 (harrison)<-[:CHILD]-(nottosKids),
 (talia)<-[:CHILD]-(nottosKids),
 (bridget)<-[:CHILD]-(nottosKids),
+(camen)<-[:CHILD]-(nottosKids),
 // renns family
 (renn)-[:MARRIED]->(ally),
 (rennsKids:Children {name: "Renn & Ally's Kids"}),
