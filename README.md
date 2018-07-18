@@ -23,6 +23,19 @@ ATTIC is like the box in your attic full of all your memories sitting there quie
 - Share digital copies of important legal documents - such as a birth certificate or high-school transcript - with your kid at college without needing to send the physical copy.
 - Keep track of the physical location of the source memory. Quickly look up the digital copy of your great-grandmother's house title and find the physical location of the document. Now you can skip the last-minute flight to Germany, nor do you need to spend days searching aimlessly through every box in her closet once you get there.
 
+## Project Stack
+
+ATTIC is built on the [GRANDstack](https://grandstack.io/):
+
+- **[Neo4j](https://neo4j.com/product/)** - The open source native graph database
+- **[Node.js](https://nodejs.org/en/)** - JavaScript runtime built on Chrome's V8 JavaScript engine
+- **[GraphQL](https://graphql.org/)** - A new paradigm for building APIs, GraphQL is a way of describing data and enabling clients to query it
+- **[Apollo](https://www.apollographql.com/)** - A suite of tools that work together to create great GraphQL workflows
+- **[React](https://reactjs.org/)** - A JavaScript library for building user interfaces
+- **[Google Cloud Storage](https://cloud.google.com/storage/)** - Google Cloud Storage is unified object storage for developers and enterprises
+- **[Transloadit](https://transloadit.com/)** - The world’s most advanced file uploading and processing service
+- **[Uppy](https://uppy.io/)** - Advanced and user-friendly bulk document uploading
+
 <!-- 
 ## Installing / Getting started
 
