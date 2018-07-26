@@ -35,17 +35,19 @@ The purpose of this is to simplify the schema to its simplest factor, focusing o
 
 ---
 
-There's a possible schema where the relationships aren't the event carriers, but rather just a relationship connector between the other three. So `(:Person)` and `(:Person)` would both be `-[:EVENT_TYPE]->` connected to a `(:Event {name: "Person & Person's Wedding!"})`. The event node would then be connected to other nodes for grouping, for example:
+There's a possible schema where the relationships aren't the event carriers, but rather just a relationship connector between the other three. So `(:Person)` and `(:Person)` would both be `-[:EVENT_TYPE]->` connected to a `(:Event {name: "Person & Person's Wedding!"})`. The event node would then be connected to other nodes for grouping. For example:
 
-`(scott:Person {name: "Scott"})-[:WAS_MARRIED]->(wedding:Event {name: "Person & Person's Wedding!"})-[:TYPE]->(weddingList:List {name: "WEDDING"}`
+```
+(scott:Person {name: "Scott"})-[:WAS_MARRIED]->(wedding:Event {name: "Person & Person's Wedding!"})-[:TYPE]->(weddingList:List {name: "WEDDING"})
 
-`(scott:Person {name: "Paige"})-[:WAS_MARRIED]->(wedding)`
+(scott:Person {name: "Paige"})-[:WAS_MARRIED]->(wedding)
 
-`(wedding)-[:EVENT_START]->(:Time)`
+(wedding)-[:EVENT_START]->(:Time)
 
-`(wedding)-[:EVENT_END]->(:Time)`
+(wedding)-[:EVENT_END]->(:Time)
 
-`(wedding)-[:EVENT_GEOLOCATION]->(:Location)`
+(wedding)-[:EVENT_GEOLOCATION]->(:Location)
+```
 
 Specific node types, like Events, would have some required relationships. For example, it would need to have a start time and a geolocation. This implies that there's a time tree and a location tree. The location tree is to the granularity of Google's places (and can use its place ID as well), while the time tree can break down to the level of milliseconds if needed (GraphAware auto time-tree plugin).
 
