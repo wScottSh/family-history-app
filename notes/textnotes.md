@@ -38,9 +38,9 @@ The purpose of this is to simplify the schema to its simplest factor, focusing o
 There's a possible schema where the relationships aren't the event carriers, but rather just a relationship connector between the other three. So `(:Person)` and `(:Person)` would both be `-[:EVENT_TYPE]->` connected to a `(:Event {name: "Person & Person's Wedding!"})`. The event node would then be connected to other nodes for grouping. For example:
 
 ```
-(scott:Person {name: "Scott"})-[:WAS_MARRIED]->(wedding:Event {name: "Person & Person's Wedding!"})-[:TYPE]->(weddingList:List {name: "WEDDING"})
+(:Person {name: "Scott"})-[:WAS_MARRIED]->(wedding:Event {name: "Person & Person's Wedding!"})-[:TYPE]->(weddingList:List {name: "WEDDING"})
 
-(scott:Person {name: "Paige"})-[:WAS_MARRIED]->(wedding)
+(:Person {name: "Paige"})-[:WAS_MARRIED]->(wedding)
 
 (wedding)-[:EVENT_START]->(:Time)
 
@@ -51,6 +51,15 @@ There's a possible schema where the relationships aren't the event carriers, but
 
 Specific node types, like Events, would have some required relationships. For example, it would need to have a start time and a geolocation. This implies that there's a time tree and a location tree. The location tree is to the granularity of Google's places (and can use its place ID as well), while the time tree can break down to the level of milliseconds if needed (GraphAware auto time-tree plugin).
 
+```
+(:Person)-[:ROLE_AT_EVENT]->(e:Event)-[:EVENT_GEOLOCATION]->(:Location)
+
+(e)-[:EVENT_TIME]->(:Time)
+```
+
+HOW DO I MODEL THIS?:
+`(:Person)-[:IS_IN]->(:Video)`
+
 ---
 
 It's important that there are multiple time connectors for calculating the time range of an event. Take these use cases:
@@ -59,3 +68,4 @@ It's important that there are multiple time connectors for calculating the time 
 - I was born at 11:13pm.
 - I went camping in the summer of 2009, but definitely sometime after my birthday.
 - Sometime between Christmas and New Years.
+
