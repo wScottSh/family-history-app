@@ -1,4 +1,3 @@
-.
 <h1 align="center">
   <br>
     <img src="./images/temp-logo.jpg" alt="Temporary Logo" width="200">
